@@ -87,7 +87,7 @@ By default, `name_filter` strips the leading `templates/`, `stylesheets/` and `s
 
 ## Render
 
-When you have a template `app/assets/javascripts/style/header.lesst` with the given content:
+When you have a template `app/assets/javascripts/styles/header.lesst` with the given content:
 
 ```scss
 .header (@r) {
