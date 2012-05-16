@@ -12,7 +12,7 @@ describe LessAssets::LessTemplate do
   end
 
   let(:scope) do
-    double(logical_path: 'styles/template')
+    double({ :logical_path => 'styles/template' })
   end
 
   before do
