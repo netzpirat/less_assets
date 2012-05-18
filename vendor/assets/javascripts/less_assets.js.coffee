@@ -38,14 +38,14 @@ class window.LessAssets
 
     # Add a style tag with the css when a document is given
     #
-    if doc instanceof HTMLDocument
+    if doc instanceof HTMLDocument || Object.prototype.toString.call(doc) is '[object HTMLDocument]'
       id = "less_asset_#{ name.replace(/[^A-Za-z0-1_/-]/, '').replace(/[/-]/, '_') }"
 
-      style = document.getElementById(id) || document.createElement 'style'
+      style = doc.getElementById(id) || doc.createElement 'style'
       style.type = 'text/css'
       style.id = id
 
-      rules = document.createTextNode result
+      rules = doc.createTextNode result
 
       if style.styleSheet
         style.styleSheet.cssText = rules.nodeValue
@@ -55,7 +55,7 @@ class window.LessAssets
 
         style.appendChild rules
 
-      head = document.getElementsByTagName('head')[0]
-      head.appendChild(style);
+      head = doc.getElementsByTagName('head')[0]
+      head.appendChild style
 
     result
