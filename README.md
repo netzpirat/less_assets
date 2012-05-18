@@ -158,7 +158,7 @@ Rendered with only some of the variables passed to the template
 JSST['box']({ 'box-margin': '20px' })
 ```
 
-will use the default values that result in
+will use the default values that results in
 
 ```CSS
 .box {
@@ -182,13 +182,13 @@ div {
 that is compiled with
 
 ```JavaScript
-JSST['header']({ m: '20px' }, document)
+JSST['divider']({ m: '20px' }, document)
 ```
 
 will create a new style tag in the head of the document:
 
 ```HTML
-<style id="less_asset_header">
+<style id="less_asset_divider">
   div {
     margin-top: 20px;
   }
