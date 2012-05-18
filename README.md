@@ -87,9 +87,9 @@ By default, `name_filter` strips the leading `templates/`, `stylesheets/` and `s
 
 ## Render
 
-When you have a template `app/assets/javascripts/styles/header.lesst` with the given content:
+When you have a template named `header` with the given content:
 
-```scss
+```SCSS
 .header (@r) {
     padding: @r * 2;
     border-radius: @r;
@@ -121,7 +121,7 @@ which will return in the following CSS
 
 whereas rendering
 
-```javascript
+```JavaScript
 JSST['header']({ radius: '20px' })
 ```
 
@@ -135,11 +135,71 @@ will result in
 }
 ```
 
-It's up to you to apply the generated CSS to a style element, Less Assets doesn't provide any helper methods yet.
+### Default variables
+
+You do not need to define the variables in the less stylesheet, as they will be created before compilation, but you
+may want to have them added to provide default variables.
+
+Given the following style template named `box`
+
+```SCSS
+@box-margin: 10px;
+@box-padding: 10px;
+
+.box {
+  margin: @box-margin;
+  padding: @box-padding;
+}
+```
+
+Rendered with only some of the variables passed to the template
+
+```JavaScript
+JSST['box']({ 'box-margin': '20px' })
+```
+
+will use the default values that result in
+
+```CSS
+.box {
+  margin: 20px;
+  padding: 10px;
+}
+```
+
+### Applying the styles to a document
+
+You can let Less Assets to manage the styles on a HTML document by passing the document to the style template.
+
+Given the following Less style template named `divider`:
+
+```CSS
+div {
+  margin-top: @m;
+}
+```
+
+that is compiled with
+
+```JavaScript
+JSST['header']({ m: '20px' }, document)
+```
+
+will create a new style tag in the head of the document:
+
+```HTML
+<style id="less_asset_header">
+  div {
+    margin-top: 20px;
+  }
+</style>
+```
+
+Re-render the same style template again with other variables will replace the existing styles with the new ones.
 
 ## Author
 
-Developed by Michael Kessler, sponsored by [mksoft.ch](https://mksoft.ch).
+Developed by Michael Kessler, [mksoft.ch](https://mksoft.ch).
 
 If you like Less Assets, you can watch the repository at [GitHub](https://github.com/netzpirat/less_assets) and
 follow [@netzpirat](https://twitter.com/#!/netzpirat) on Twitter for project updates.

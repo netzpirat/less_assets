@@ -26,7 +26,7 @@ describe LessAssets::LessTemplate do
         template.render(scope).should eql <<-TEMPLATE
 (function() {
   window.JSST || (window.JSST = {});
-  window.JSST['template'] = function(v) { return LessAssets.render(\"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v); };\n}).call(this);
+  window.JSST['template'] = function(v, e) { return LessAssets.render('template', \"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v, e); };\n}).call(this);
         TEMPLATE
       end
     end
@@ -40,7 +40,7 @@ describe LessAssets::LessTemplate do
         template.render(scope).should eql <<-TEMPLATE
 (function() {
   window.STYLES || (window.STYLES = {});
-  window.STYLES['template'] = function(v) { return LessAssets.render(\"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v); };\n}).call(this);
+  window.STYLES['template'] = function(v, e) { return LessAssets.render('template', \"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v, e); };\n}).call(this);
         TEMPLATE
       end
     end
@@ -54,7 +54,7 @@ describe LessAssets::LessTemplate do
         template.render(scope).should eql <<-TEMPLATE
 (function() {
   window.JSST || (window.JSST = {});
-  window.JSST['styles/template'] = function(v) { return LessAssets.render(\"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v); };\n}).call(this);
+  window.JSST['styles/template'] = function(v, e) { return LessAssets.render('styles/template', \"  h1 { margin: 10px; }\\n  h2 { margin: 20px; }\\n\", v, e); };\n}).call(this);
         TEMPLATE
       end
     end

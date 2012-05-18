@@ -57,7 +57,7 @@ module LessAssets
       <<-JST
 (function() {
   #{ self.class.namespace } || (#{ self.class.namespace } = {});
-  #{ self.class.namespace }['#{ name }'] = function(v) { return LessAssets.render(\"#{ data.gsub(/\n/, "\\n") }\", v); };
+  #{ self.class.namespace }['#{ name }'] = function(v, e) { return LessAssets.render('#{ name }', \"#{ data.gsub(/\n/, "\\n") }\", v, e); };
 }).call(this);
       JST
     end
