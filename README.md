@@ -8,6 +8,15 @@ have a look at [Less Rails](https://github.com/metaskills/less-rails).
 
 Tested on MRI Ruby 1.8.7, 1.9.2, 1.9.3, REE and the latest version of JRuby.
 
+## Why a Style template?
+ 
+Why would you like to have JavaScript Style Templates? If you have a lot of domain models that describes a UI, you can
+convert them dynamically to CSS and have nice style logic in the template instead of code that manipulates the DOM
+style attributes.
+
+I also wrote a JavaScript Style Template for [Stylus](https://github.com/learnboost/stylus), see
+[Stylus_Assets](https://github.com/netzpirat/stylus_assets).
+
 ## Installation
 
 The simplest way to install Less Assets is to use [Bundler](http://gembundler.com/).
