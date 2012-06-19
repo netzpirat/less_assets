@@ -55,7 +55,8 @@ class window.LessAssets
 
         style.appendChild rules
 
-      head = doc.getElementsByTagName('head')[0]
-      head.appendChild style
+      unless doc.getElementById(id)
+        head = doc.getElementsByTagName('head')[0]
+        head.appendChild style
 
     result
